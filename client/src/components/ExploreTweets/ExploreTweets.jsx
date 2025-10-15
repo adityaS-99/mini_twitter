@@ -11,7 +11,7 @@ const ExploreTweets = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const exploreTweets = await axios.get("https://twitter-backend-jd7u.onrender.com/api/tweets/explore");
+        const exploreTweets = await axios.get("http://localhost:8000/api/tweets/explore");
         setExplore(exploreTweets.data);
       } catch (err) {
         console.log("error", err);

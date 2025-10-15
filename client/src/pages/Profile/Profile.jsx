@@ -25,8 +25,8 @@ const Profile = () => {
     }
     const fetchData = async () => {
       try {
-        const tweets = await axios.get(`https://twitter-backend-jd7u.onrender.com/api/tweets/user/all/${id}`);
-        const profile = await axios.get(`https://twitter-backend-jd7u.onrender.com/api/users/find/${id}`);
+        const tweets = await axios.get(`http://localhost:8000/api/tweets/user/all/${id}`);
+        const profile = await axios.get(`http://localhost:8000/api/users/find/${id}`);
 
         setUserTweets(tweets.data);
         await setProfile(profile.data);
@@ -53,7 +53,7 @@ const Profile = () => {
   const handleFollow = async () => {
     if (!currentUser.following.includes(id)) {
       try {
-        const follow = await axios.put(`https://twitter-backend-jd7u.onrender.com/api/users/follow/${id}`, {
+        const follow = await axios.put(`http://localhost:8000/api/users/follow/${id}`, {
           id: currentUser._id,
         });
         dispatch(following(id));
@@ -62,7 +62,7 @@ const Profile = () => {
       }
     } else {
       try {
-        const unfollow = await axios.put(`https://twitter-backend-jd7u.onrender.com/api/users/unfollow/${id}`, {
+        const unfollow = await axios.put(`http://localhost:8000/api/users/unfollow/${id}`, {
           id: currentUser._id,
         });
 

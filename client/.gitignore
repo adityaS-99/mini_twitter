@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /src/firebase.js
+/src/supabase.js
 
 # testing
 /coverage
@@ -18,7 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
-firebase.js
+supabase.js
 
 
 npm-debug.log*

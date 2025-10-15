@@ -41,7 +41,7 @@ const EditProfile = ({ setOpen }) => {
     formData.append("imageData", img);
 
     try {
-      const response = await axios.post(`https://twitter-backend-jd7u.onrender.com/api/image/upload/userpic/${currentUser._id}`, formData);
+      const response = await axios.post(`http://localhost:8000/api/image/upload/userpic/${currentUser._id}`, formData);
       changeProfile(response.data.imageData);
       console.log(response.data.message);
       window.location.reload(false);
@@ -51,7 +51,7 @@ const EditProfile = ({ setOpen }) => {
   };
 
   const handleDelete = async () => {
-    const deleteProfile = await axios.delete(`https://twitter-backend-jd7u.onrender.com/api/users/${currentUser._id}`);
+    const deleteProfile = await axios.delete(`http://localhost:8000/api/users/${currentUser._id}`);
     dispatch(logout());
     navigate("/signin");
   };
