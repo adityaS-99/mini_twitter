@@ -17,15 +17,16 @@ const connect = () => {
   mongoose
     .connect(process.env.MONGO)
     .then(() => {
-      console.log("connect to mongodb database");
+      console.log("connected to mongodb database");
     })
     .catch((err) => {
+      console.log("error connecting to mongodb database");
       throw err;
     });
 };
 var corsOptions = {
-  origin: 'https://twitter-clone-1135.netlify.app',
-  // origin:'http://localhost:3000',
+  // origin: 'https://twitter-clone-1135.netlify.app',
+  origin:'http://localhost:3000',
   credentials: true,
   optionsSuccessStatus: 200 // For legacy browser support
 }

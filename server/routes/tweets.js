@@ -19,13 +19,13 @@ const upload = multer({storage: multer.memoryStorage()});
 router.post("/", createTweet);
 
 // Delete a Tweet
-router.delete("/:id", deleteTweet);
+router.delete("/:id", verifyToken, deleteTweet);
 
 // Edit a Tweet
-router.put("/:id", editTweet);
+router.put("/:id", verifyToken, editTweet);
 
 // Like or Dislike a Tweet
-router.put("/:id/like", likeOrDislike);
+router.put("/:id/like", verifyToken, likeOrDislike);
 
 // get all timeline tweets
 router.get("/timeline/:id", getAllTweets);

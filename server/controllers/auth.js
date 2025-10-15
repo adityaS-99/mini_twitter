@@ -11,7 +11,7 @@ export const signup = async (req, res, next) => {
 
     await newUser.save();
 
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT);
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT, { expiresIn: "7d" });
 
     const { password, ...othersData } = newUser._doc;
     res
@@ -35,7 +35,7 @@ export const signin = async (req, res, next) => {
 
     if (!isCorrect) return next(handleError(400, "Wrong password"));
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT);
+    const token = jwt.sign({ id: user._id }, process.env.JWT, { expiresIn: "7d" });
     const { password, ...othersData } = user._doc;
 
     res

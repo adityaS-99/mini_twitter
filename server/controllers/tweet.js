@@ -3,7 +3,7 @@ import { handleError } from "../error.js";
 import User from "../models/User.js";
 
 export const createTweet = async (req, res, next) => {
-  // console.log(req.body);
+  console.log(req.body);
   const newTweet = new Tweet({
     userId: req.body.userId,
     description: req.body.description || '',

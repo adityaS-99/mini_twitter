@@ -11,18 +11,18 @@ import { verifyToken } from "../verifyToken.js";
 const router = express.Router();
 
 // Update User
-router.put("/:id", update);
+router.put("/:id", verifyToken, update);
 
 // Get User
-router.get("/find/:id", getUser);
+router.get("/find/:id", getUser); //can be public
 
 // Delete User
-router.delete("/:id", deleteUser);
+router.delete("/:id", verifyToken, deleteUser);
 
 // Follow
-router.put("/follow/:id", follow);
+router.put("/follow/:id", verifyToken, follow);
 
 // Unfollow
-router.put("/unfollow/:id", unFollow);
+router.put("/unfollow/:id", verifyToken, unFollow);
 
 export default router;
